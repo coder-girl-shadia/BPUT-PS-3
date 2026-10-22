@@ -1,0 +1,95 @@
+{
+  "chief_complaint": {
+    "value": "sardar",
+    "confidence": 0.5,
+    "source": "voice"
+  },
+  "onset": {
+    "value": "sudden",
+    "confidence": 0.5,
+    "source": "voice"
+  },
+  "duration": {
+    "value": null,
+    "confidence": 0.0,
+    "source": "voice"
+  },
+  "severity": {
+    "value": null,
+    "confidence": 0.0,
+    "source": "voice"
+  },
+  "symptoms": {
+    "value": [],
+    "confidence": 0.0,
+    "source": "voice"
+  },
+  "history": {
+    "value": null,
+    "confidence": 0.0,
+    "source": "voice"
+  },
+  "pregnancy_status": {
+    "value": null,
+    "confidence": 0.0,
+    "source": "voice"
+  },
+  "medications": {
+    "value": [],
+    "confidence": 0.0,
+    "source": "voice"
+  },
+  "allergies": {
+    "value": null,
+    "confidence": 0.0,
+    "source": "voice"
+  },
+  "vitals": {
+    "temp_c": {
+      "value": null,
+      "confidence": 0.0,
+      "source": "voice"
+    },
+    "spo2": {
+      "value": null,
+      "confidence": 0.0,
+      "source": "voice"
+    },
+    "pulse": {
+      "value": null,
+      "confidence": 0.0,
+      "source": "voice"
+    },
+    "bp_sys": {
+      "value": null,
+      "confidence": 0.0,
+      "source": "voice"
+    },
+    "bp_dia": {
+      "value": null,
+      "confidence": 0.0,
+      "source": "voice"
+    },
+    "resp_rate": {
+      "value": null,
+      "confidence": 0.0,
+      "source": "voice"
+    }
+  },
+  "meta": {
+    "language": "en",
+    "source": "voice",
+    "raw_text": "तीरा नाम सुन्ता है, मैं साथ महीने गर्पती हो, तो दिम से बहात तीज सर्दर्ध है, और दूंदिला दिखरा है.",
+    "extractor": "rules+llm",
+    "missing_fields": [
+      "duration",
+      "severity",
+      "symptoms",
+      "vitals"
+    ],
+    "unverified_symptoms": [
+      "sardar",
+      "sardar"
+    ]
+  }
+}

@@ -1,0 +1,138 @@
+# Triage red-flag rules. ESCALATE-ONLY: rules can raise priority, never lower it.
+# Tags: Routine < Priority < Urgent.  "when" clauses are ANDed.
+# Clause types: symptom, any_symptom, vital {name, op, value}, pregnant, severity
+# NOTE: thresholds are illustrative, drawn from commonly published red-flag criteria,
+# and must be validated by a qualified clinician before any real-world use.
+
+rules:
+  - id: R01
+    tag: Urgent
+    immediate: true
+    reason: "SpO2 below 90%"
+    source: "General clinical red-flag criteria (illustrative)"
+    when: [{vital: {name: spo2, op: "<", value: 90}}]
+  - id: R02
+    tag: Urgent
+    reason: "SpO2 below 94%"
+    source: "General clinical red-flag criteria (illustrative)"
+    when: [{vital: {name: spo2, op: "<", value: 94}}]
+  - id: R03
+    tag: Urgent
+    reason: "Chest pain together with breathlessness"
+    source: "General clinical red-flag criteria (illustrative)"
+    when: [{symptom: chest pain}, {symptom: breathlessness}]
+  - id: R04
+    tag: Urgent
+    reason: "Severe chest pain"
+    source: "General clinical red-flag criteria (illustrative)"
+    when: [{symptom: chest pain}, {severity: severe}]
+  - id: R05
+    tag: Priority
+    reason: "Chest pain reported"
+    source: "General clinical red-flag criteria (illustrative)"
+    when: [{symptom: chest pain}]
+  - id: R06
+    tag: Priority
+    reason: "Breathlessness reported"
+    source: "General clinical red-flag criteria (illustrative)"
+    when: [{symptom: breathlessness}]
+  - id: R07
+    tag: Urgent
+    reason: "Fever with confusion or drowsiness"
+    source: "General clinical red-flag criteria (illustrative)"
+    when: [{symptom: fever}, {symptom: confusion}]
+  - id: R08
+    tag: Urgent
+    reason: "Fever with stiff neck"
+    source: "General clinical red-flag criteria (illustrative)"
+    when: [{symptom: fever}, {symptom: stiff neck}]
+  - id: R09
+    tag: Urgent
+    reason: "Convulsions reported"
+    source: "IMNCI-style danger signs"
+    when: [{symptom: convulsions}]
+  - id: R10
+    tag: Urgent
+    reason: "Unable to feed / not drinking"
+    source: "IMNCI-style danger signs"
+    when: [{symptom: unable to feed}]
+  - id: R11
+    tag: Urgent
+    reason: "Pregnancy with a danger sign (bleeding, blurred vision, reduced fetal movement)"
+    source: "NHM maternal danger signs"
+    when: [{pregnant: true}, {any_symptom: [bleeding, blurred vision, reduced fetal movement]}]
+  - id: R12
+    tag: Urgent
+    reason: "Pregnancy with headache and systolic BP 140 or above"
+    source: "NHM maternal danger signs"
+    when: [{pregnant: true}, {symptom: headache}, {vital: {name: bp_sys, op: ">=", value: 140}}]
+  - id: R13
+    tag: Priority
+    reason: "Pregnancy with headache"
+    source: "NHM maternal danger signs"
+    when: [{pregnant: true}, {symptom: headache}]
+  - id: R14
+    tag: Urgent
+    reason: "Very high blood pressure (systolic 180+ or diastolic 120+)"
+    source: "General clinical red-flag criteria (illustrative)"
+    when: [{vital: {name: bp_sys, op: ">=", value: 180}}]
+  - id: R15
+    tag: Urgent
+    reason: "Very high blood pressure (systolic 180+ or diastolic 120+)"
+    source: "General clinical red-flag criteria (illustrative)"
+    when: [{vital: {name: bp_dia, op: ">=", value: 120}}]
+  - id: R16
+    tag: Priority
+    reason: "Raised blood pressure (systolic 160+)"
+    source: "General clinical red-flag criteria (illustrative)"
+    when: [{vital: {name: bp_sys, op: ">=", value: 160}}]
+  - id: R17
+    tag: Urgent
+    reason: "Very high temperature (40 C or above)"
+    source: "General clinical red-flag criteria (illustrative)"
+    when: [{vital: {name: temp_c, op: ">=", value: 40}}]
+  - id: R18
+    tag: Priority
+    reason: "High temperature (39 C or above)"
+    source: "General clinical red-flag criteria (illustrative)"
+    when: [{vital: {name: temp_c, op: ">=", value: 39}}]
+  - id: R19
+    tag: Urgent
+    reason: "Very fast pulse (130 or above)"
+    source: "General clinical red-flag criteria (illustrative)"
+    when: [{vital: {name: pulse, op: ">=", value: 130}}]
+  - id: R20
+    tag: Priority
+    reason: "Fast pulse (110 or above)"
+    source: "General clinical red-flag criteria (illustrative)"
+    when: [{vital: {name: pulse, op: ">=", value: 110}}]
+  - id: R21
+    tag: Priority
+    reason: "Slow pulse (below 50)"
+    source: "General clinical red-flag criteria (illustrative)"
+    when: [{vital: {name: pulse, op: "<", value: 50}}]
+  - id: R22
+    tag: Urgent
+    reason: "Very fast breathing (30 per minute or above)"
+    source: "General clinical red-flag criteria (illustrative)"
+    when: [{vital: {name: resp_rate, op: ">=", value: 30}}]
+  - id: R23
+    tag: Priority
+    reason: "Bleeding reported"
+    source: "General clinical red-flag criteria (illustrative)"
+    when: [{symptom: bleeding}]
+  - id: R24
+    tag: Priority
+    reason: "Fever with rash"
+    source: "General clinical red-flag criteria (illustrative)"
+    when: [{symptom: fever}, {symptom: rash}]
+  - id: R25
+    tag: Priority
+    reason: "Vomiting and diarrhoea with weakness"
+    source: "General clinical red-flag criteria (illustrative)"
+    when: [{symptom: vomiting}, {symptom: diarrhoea}, {symptom: weakness}]
+  - id: R26
+    tag: Priority
+    reason: "Patient describes symptoms as severe"
+    source: "Reported severity"
+    when: [{severity: severe}]
